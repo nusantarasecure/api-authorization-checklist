@@ -4,7 +4,7 @@ Panduan berbahasa Indonesia untuk menyusun pemeriksaan akses pesanan pada aplika
 
 **Seluruh akun, toko, ID, endpoint, dan versi aplikasi merupakan rancangan lab fiktif.** Repositori ini berisi dokumentasi; aplikasi lab dan layanan API tidak disertakan. Tidak ada pengujian langsung atau hasil pentest nyata yang diklaim di sini. Semua baris matriks dimulai dengan status **Belum diuji**.
 
-## Mulai dari sini
+## Mulai Dari Sini
 
 | Berkas | Kegunaan |
 | --- | --- |
@@ -19,13 +19,13 @@ Panduan berbahasa Indonesia untuk menyusun pemeriksaan akses pesanan pada aplika
 
 Matriks dapat dibaca di GitHub atau dibuka sebagai CSV UTF-8 dengan pemisah koma. Simpan salinan pengujian beserta bukti sensitif secara privat. Untuk kontribusi publik, gunakan contoh sintetis yang sudah diperiksa kembali.
 
-## Apa yang diperiksa?
+## Apa Yang Diperiksa ?
 
 Autentikasi mengenali pengguna; otorisasi menentukan akses pengguna terhadap sumber daya. Pada contoh ini, pengguna yang sudah masuk tetap harus memenuhi aturan akses pesanan. Lihat [OWASP Authorization Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html).
 
 **BOLA** (*Broken Object Level Authorization*) berkaitan dengan pemeriksaan izin terhadap objek. **IDOR** (*Insecure Direct Object Reference*) digunakan untuk membahas akses tidak sah melalui referensi objek. Kasus membaca pesanan toko lain dengan mengganti ID dapat berkaitan dengan keduanya. UUID tetap memerlukan pemeriksaan izin. Referensi: [OWASP API1:2023 — Broken Object Level Authorization](https://owasp.org/API-Security/editions/2023/en/0xa1-broken-object-level-authorization/).
 
-## Kebijakan lab
+## Kebijakan Lab
 
 Nama versi rancangan: `lab-1.0`. Endpoint: `GET /api/orders/{id}`. Toko A dan toko B adalah tenant terpisah.
 
@@ -43,7 +43,7 @@ Objek sintetis:
 
 Tidak ada peran administrator lintas tenant, keanggotaan ganda, atau fitur berbagi pesanan dalam rancangan ini. Jika aplikasi memiliki aturan tersebut, buat matriks tambahan berdasarkan kebijakan yang disepakati.
 
-### Ekspektasi respons
+### Ekspektasi Respons
 
 - Akses pesanan toko sendiri: `200`, dengan bidang pesanan yang diizinkan untuk staf.
 - Akses pesanan toko lain: `403`, tanpa data pesanan yang dilindungi.
@@ -52,7 +52,7 @@ Tidak ada peran administrator lintas tenant, keanggotaan ganda, atau fitur berba
 
 Angka tersebut adalah **kontrak lab yang diusulkan**, bukan hasil pengujian. HTTP juga mengizinkan `404` untuk menyembunyikan keberadaan sumber daya yang ditolak. Jika lab memakai pilihan itu, ubah ekspektasi sebelum pengujian dan periksa konsistensinya. Respons `401` harus menyertakan challenge `WWW-Authenticate` yang sesuai skema autentikasi. Rujukan: [RFC 9110 §15.5.2](https://www.rfc-editor.org/rfc/rfc9110.html#section-15.5.2) dan [§15.5.4](https://www.rfc-editor.org/rfc/rfc9110.html#section-15.5.4).
 
-## Checklist persiapan
+## Checklist Persiapan
 
 - [ ] Lingkungan dan pemberi izin pengujian tercatat.
 - [ ] Endpoint, metode, versi aplikasi, waktu, dan batas dampak ditetapkan.
@@ -62,7 +62,7 @@ Angka tersebut adalah **kontrak lab yang diusulkan**, bukan hasil pengujian. HTT
 - [ ] Ekspektasi akses dan bidang respons ditulis sebelum pengujian.
 - [ ] Pengambilan data nyata, enumerasi massal, dan perubahan pesanan berada di luar cakupan ini.
 
-## Checklist saat pemeriksaan
+## Checklist Saat Pemeriksaan
 
 - [ ] Akses yang diizinkan berfungsi untuk kedua staf.
 - [ ] Penolakan akses lintas toko diperiksa pada kedua arah.
@@ -75,7 +75,7 @@ Angka tersebut adalah **kontrak lab yang diusulkan**, bukan hasil pengujian. HTT
 
 Jika cache tidak ada atau tidak dapat diamati pada lab, tulis keterbatasannya. Respons yang sesuai pada satu percobaan tidak membuktikan seluruh konfigurasi cache aman.
 
-## Cara menilai pengamatan
+## Cara Menilai Pengamatan
 
 Gunakan kolom status sebagai berikut:
 
@@ -91,13 +91,13 @@ Respons `200` dengan data lintas toko perlu diperiksa bersama keanggotaan akun, 
 
 Untuk pemeriksaan implementasi, pastikan keputusan akses dibuat di server berdasarkan identitas terverifikasi, hubungan pengguna dengan tenant, objek, dan tindakan. Pemeriksaan dilakukan pada setiap jalur akses objek yang relevan. Setelah perubahan, ulangi kasus penolakan serta akses yang seharusnya diizinkan; simpan hasil awal dan retest secara terpisah.
 
-## Batas cakupan
+## Batas Cakupan
 
 Delapan kasus ini berfokus pada pembacaan detail pesanan. Daftar, pencarian, ekspor, lampiran, perubahan data, GraphQL, pekerjaan asinkron, pencabutan keanggotaan, serta peran lain memerlukan rancangan tambahan. Penggunaan checklist ini tidak membuktikan cakupan penuh OWASP atau keamanan seluruh aplikasi.
 
-## Panduan pendamping
+## Panduan Pendamping
 
 - [BOLA dan IDOR pada API: Menguji Akses Pesanan Antar-Toko di DEV](https://dev.to/nusantarasecure/bola-dan-idor-pada-api-menguji-akses-pesanan-antar-toko-659) — pembahasan skenario dan penafsiran bukti.
 - [Contoh laporan pentest API dan retest — Nusantara Secure](https://nusantarasecure.com/contoh-laporan-pentest/) — contoh laporan publik berbasis lab fiktif.
 
-Materi edukasi disiapkan untuk akun [Nusantara Secure](https://github.com/nusantarasecure) dengan bantuan AI. Referensi mendukung penjelasan konsep; materi ini bukan dokumen resmi atau pengesahan OWASP. Jangan memasukkan temuan klien atau laporan sistem nyata ke issue maupun pull request publik.
+Materi edukasi disiapkan oleh [Nusantara Secure](https://github.com/nusantarasecure) . Referensi mendukung penjelasan konsep; materi ini bukan dokumen resmi atau pengesahan OWASP. Jangan memasukkan temuan klien atau laporan sistem nyata ke issue maupun pull request publik.
