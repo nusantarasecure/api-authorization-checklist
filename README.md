@@ -85,7 +85,7 @@ Gunakan kolom status sebagai berikut:
 | Sesuai ekspektasi | Pengamatan dan bukti mendukung ekspektasi pada kasus serta versi yang dicatat. |
 | Tidak sesuai ekspektasi | Ada penyimpangan yang perlu ditelaah dan didokumentasikan. |
 | Terhalang | Prasyarat atau akses pengujian tidak tersedia. |
-| Tidak berlaku | Kasus tidak relevan terhadap desain lab; alasan wajib dicatat. |
+| Tidak berlaku | Kasus tidak relevan terhadap desain lab, alasan wajib dicatat. |
 
 Respons `200` dengan data lintas toko perlu diperiksa bersama keanggotaan akun, kepemilikan objek, dan aturan akses. Peran tambahan atau sesi yang tertukar dapat mengubah penafsiran. Jangan menyatakan seluruh data bisa diambil atau diubah dari bukti pembacaan satu objek.
 
