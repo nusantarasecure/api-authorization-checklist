@@ -101,6 +101,6 @@ Delapan kasus ini berfokus pada pembacaan detail pesanan. Daftar, pencarian, eks
 - [Contoh laporan pentest API dan retest — Nusantara Secure](https://nusantarasecure.com/contoh-laporan-pentest/) — contoh laporan publik berbasis lab fiktif.
 - [Ilustrasi sederhana dalam bentuk video agar lebih mudah dipahami](https://youtu.be/YwWRM3l96yE) — tautan ke kanal youtube resmi miliki Nusantara Secure.
 
-Materi edukasi disiapkan oleh [Nusantara Secure](https://github.com/nusantarasecure).
+Materi edukasi disiapkan oleh [Nusantara Secure](https://nusantarasecure.com).
 
 Referensi mendukung penjelasan konsep, materi ini bukan dokumen resmi atau pengesahan OWASP. Jangan memasukkan temuan klien atau laporan sistem nyata ke issue maupun pull request publik.
