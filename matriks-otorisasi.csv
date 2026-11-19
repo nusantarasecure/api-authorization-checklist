@@ -1,0 +1,9 @@
+id,akun,kondisi_sesi,tenant_akun,metode,path,prasyarat,ekspektasi_http,ekspektasi_data,http_aktual,data_aktual,status,waktu_zona,versi_aplikasi,bukti,catatan
+AUTH-01,Staf A,Aktif,Toko A,GET,/api/orders/ORD-A-1001,Pesanan dipastikan milik toko A,200,Hanya bidang yang diizinkan pada pesanan toko A,,,Belum diuji,,,,
+AUTH-02,Staf B,Aktif,Toko B,GET,/api/orders/ORD-B-2001,Pesanan dipastikan milik toko B,200,Hanya bidang yang diizinkan pada pesanan toko B,,,Belum diuji,,,,
+AUTH-03,Staf A,Aktif,Toko A,GET,/api/orders/ORD-B-2001,Staf A tidak memiliki keanggotaan toko B,403,Tidak ada data pesanan toko B yang dilindungi,,,Belum diuji,,,,
+AUTH-04,Staf B,Aktif,Toko B,GET,/api/orders/ORD-A-1001,Staf B tidak memiliki keanggotaan toko A,403,Tidak ada data pesanan toko A yang dilindungi,,,Belum diuji,,,,
+AUTH-05,Tanpa sesi,Tidak ada,Tidak ada,GET,/api/orders/ORD-A-1001,Request tidak menyertakan sesi atau kredensial lain,401,Tidak ada data pesanan; challenge WWW-Authenticate sesuai skema,,,Belum diuji,,,,
+AUTH-06,Staf A,Kedaluwarsa,Toko A,GET,/api/orders/ORD-A-1001,Sesi dipastikan kedaluwarsa tanpa kredensial aktif lain,401,Tidak ada data pesanan; challenge WWW-Authenticate sesuai skema,,,Belum diuji,,,,
+AUTH-07,Staf A,Aktif,Toko A,GET,/api/orders/ORD-X-0000,ID dipastikan tidak tersedia dalam fixture,404,Tidak ada detail internal atau data pesanan,,,Belum diuji,,,,
+AUTH-08,Staf A,Aktif,Toko A,GET,/api/orders/ORD-B-2001,Jalankan AUTH-02 dahulu lalu gunakan sesi A melalui jalur cache lab yang sama,403,Tidak ada data pesanan toko B dari respons sebelumnya,,,Belum diuji,,,,
