@@ -99,7 +99,7 @@ Delapan kasus ini berfokus pada pembacaan detail pesanan. Daftar, pencarian, eks
 
 - [BOLA dan IDOR pada API: Menguji Akses Pesanan Antar-Toko di DEV](https://dev.to/nusantarasecure/bola-dan-idor-pada-api-menguji-akses-pesanan-antar-toko-659) — pembahasan skenario dan penafsiran bukti.
 - [Contoh laporan pentest API dan retest — Nusantara Secure](https://nusantarasecure.com/contoh-laporan-pentest/) — contoh laporan publik berbasis lab fiktif.
-- [Ilustrasi sederhana dalam bentuk video agar lebih mudah dipahami](https://youtu.be/YwWRM3l96yE) — tautan ke kanal youtube resmi miliki Nusantara Secure.
+- [Ilustrasi sederhana dalam bentuk video agar lebih mudah dipahami](https://youtu.be/YwWRM3l96yE) — tautan ke kanal youtube resmi milik Nusantara Secure.
 
 Materi edukasi disiapkan oleh [Nusantara Secure](https://nusantarasecure.com).
 
